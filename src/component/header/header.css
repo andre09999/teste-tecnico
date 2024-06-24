@@ -1,0 +1,28 @@
+header{
+  width: 1024px;
+  height: 60px;
+  background-color: #FFFFFF;
+}
+
+img{
+  width: 44px;
+  height: 34px;
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+@media (max-width: 375px) {
+  header{
+    width: 375px;
+    height: 60px;
+  }
+  
+  img{
+    position: relative;
+    top: 12.08px;
+    left: 20px;
+    padding: 10px;
+    gap: 10px;
+  }
+}
