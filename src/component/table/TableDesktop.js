@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './TableDesktop.css';
 
-function TableDesktop() {
-  const [employees, setEmployees] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:3000/employees')
-      .then(response => setEmployees(response.data))
-      .catch(error => console.error('Erro ao buscar dados:', error));
-  }, []);
+function TableDesktop({ copyemployees }) {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -38,13 +30,13 @@ function TableDesktop() {
             <th><h2>Telefone</h2></th>
       </thead>
       <tbody>
-        {employees.map(a => ( 
+        {copyemployees.map(a => ( 
           <tr key={a.id}>
             <td><img src={ a.image } alt='foto' /></td>
-            <td>{a.name}</td>
-            <td>{a.job}</td>
-            <td>{formatDate(a.admission_date)}</td>
-            <td>{ formatPhoneNumber( a.phone )}</td>
+            <td><h3>{a.name}</h3></td>
+            <td><h3>{a.job}</h3></td>
+            <td><h3>{formatDate(a.admission_date)}</h3></td>
+            <td><h3>{ formatPhoneNumber( a.phone )}</h3></td>
           </tr>
         ))}
        

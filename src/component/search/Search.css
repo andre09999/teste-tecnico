@@ -1,0 +1,28 @@
+.search-container {
+  position: relative;
+  right: 43px;
+}
+
+input[type="search"] {
+  padding-right: 30px; 
+}
+
+input[type="search"]::placeholder {
+  color: #aaa; 
+}
+
+input[type="search"] {
+  background-image: url('../../image/search.png'); 
+  background-size: 20px; 
+  background-position: right 10px center; 
+  background-repeat: no-repeat; 
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+  padding: 8px 30px 8px 10px;
+}
+
+@media only screen and (max-width: 375px){
+  .search-container{
+    right: 2px;
+  }
+}

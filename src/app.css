@@ -16,3 +16,31 @@ h4{
   size: 24px;
   line-height: 28.13px;
 }
+
+.position{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.App{
+  width: 1024px;
+  background: #F0F0F0;
+  height: 100vh;
+}
+@media only screen and (max-width: 375px){
+  .App{
+    width: 375px;
+  }
+  .position{
+    flex-direction: column;
+    padding: 20px;
+  }
+  input[type="search"]{
+    width: 335px;
+    height: 40px;
+  }
+  h4{
+    width: 335px;
+  }
+}

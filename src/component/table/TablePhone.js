@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import './TablePhone.css';
 import arrow from "../../image/charm_chevron-down.png"
 import arrowoff from "../../image/Vector.png"
 import elipse from "../../image/Ellipse 1.png"
 
-function TablePhone() {
-  const [employees, setEmployees] = useState([]);
-  const [expandedRows, setExpandedRows] = useState({});
+function TablePhone({ copyemployees }) {
 
-  const [hid, setHid] = useState('off')
-  useEffect(() => {
-    axios.get('http://localhost:3000/employees')
-      .then(response => setEmployees(response.data))
-      .catch(error => console.error('Erro ao buscar dados:', error));
-  }, []);
+  const [expandedRows, setExpandedRows] = useState({});
+  const [hid, setHid] = useState()
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -42,7 +35,6 @@ function TablePhone() {
   };
   const arrowImage = hid === 'on' ? arrowoff : arrow;
 
-
   return (
     <table className='tableCell'>
        <thead className='headsCell'>
@@ -51,12 +43,12 @@ function TablePhone() {
         <th className='headCell'><img src={ elipse } alt='complemento' className='circle' /></th>
       </thead>
       <tbody>
-        {employees.map(a => ( 
+        {copyemployees.map(a => ( 
           <div key={a.id}>
           <tr  className='trCell'>
             
             <td className='tdCell'><img src={ a.image } alt='foto'  /></td>
-            <td className='tdCell'>{a.name}</td>
+            <td className='tdCell'><h3>{a.name}</h3></td>
             <td className='tdCell'>
               <button onClick={() => toggleVisibility(a.id)}>
                 <img src={arrowImage} alt='arrow' className='arrow'/>
@@ -64,9 +56,9 @@ function TablePhone() {
             </td>
           </tr>
             <div className={expandedRows[a.id] ? 'on' : 'off' }>
-            <td className='detail'><h2>Cargo</h2><h3>{a.job}</h3></td>
-            <td  className='detail'><h2>Data de Admissão</h2> <h3>{formatDate(a.admission_date)} </h3></td>
-            <td  className='detail'><h2>Telefone</h2> <h3>{ formatPhoneNumber( a.phone )} </h3> </td>
+            <td className='detail'><h2>Cargo</h2><h3 className='custom'>{a.job}</h3></td>
+            <td  className='detail'><h2>Data de Admissão</h2> <h3 className='custom'>{formatDate(a.admission_date)} </h3></td>
+            <td  className='detail'><h2>Telefone</h2> <h3 className='custom'>{ formatPhoneNumber( a.phone )} </h3> </td>
             </div>
             
           </div>
