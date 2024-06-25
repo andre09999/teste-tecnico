@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TablePhone.css';
 import arrow from "../../image/charm_chevron-down.png"
 import arrowoff from "../../image/Vector.png"
@@ -16,7 +16,7 @@ function TablePhone({ copyemployees }) {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
-
+  useEffect(() => {setHid('off')},[])
   const formatPhoneNumber = (phoneNumberString) => {
     const cleaned = ('' + phoneNumberString).replace(/\D/g, ''); 
     const match = cleaned.match(/^(\d{0,2})(\d{0,2})(\d{0,5})(\d{0,4})$/)
@@ -27,7 +27,6 @@ function TablePhone({ copyemployees }) {
   };
 
   const toggleVisibility = (id) => {
-
     setExpandedRows(prevState => ({
       ...prevState,
       [id]: !prevState[id]
