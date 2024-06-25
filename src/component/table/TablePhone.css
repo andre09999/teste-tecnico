@@ -1,0 +1,60 @@
+.tableCell{
+  width: 335px;
+  display: flex;
+  flex-direction: column;
+}
+.off{
+  display: none;
+  width: 335px;
+}
+
+.on{
+  display: flex;
+  flex-direction: column;
+
+}
+.trCell{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 335px;
+  height: 50px;
+  box-shadow: 0px 1px 2px 0px #00000033;
+  
+}
+
+.detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 335px;
+}
+
+.tdCell{
+  width: 33.333%;
+  border: none;
+}
+
+.circle{
+  width: 10px;
+  height: 10px;
+}
+
+.headCell{
+  width: 111.66px;
+}
+
+.headsCell{
+  width: 335px;
+}
+
+.arrow{
+  width: 17px;
+  height: 12px;
+  filter: brightness(0) saturate(100%) hue-rotate(240deg);
+}
+button{
+  background-color: transparent;
+  border: none;
+}
